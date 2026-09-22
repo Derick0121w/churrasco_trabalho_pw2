@@ -1,15 +1,15 @@
-create database churrasco;
+CREATE DATABASE IF NOT EXISTS churrasco;
 
 use churrasco;
 
-create table usuarios(
+create table if not exists usuarios(
 id INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR(100) NOT NULL,
 email VARCHAR(100) NOT NULL UNIQUE,
 senha VARCHAR(255) NOT NULL
 );
 
-create table participantes(
+create table if not exists participantes(
 id INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR(100) NOT NULL,
 turma VARCHAR(50) NOT NULL,
