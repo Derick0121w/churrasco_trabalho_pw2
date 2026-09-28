@@ -5,13 +5,13 @@ if (session_status() === PHP_SESSION_NONE) {
 
 if (!isset($_SESSION['usuario_id'])) {
 
-    $raiz = dirname($_SERVER['SCRIPT_NAME']);
+    $arquivo = substr(strrchr($_SERVER['SCRIPT_NAME'], '/'), 1);
     
 
-    if (basename($raiz) === 'participantes' || basename($raiz) === 'auth') {
-        header("Location: ../auth/login.php");
+    if ($arquivo === 'index.php') {
+        header("Location: ./auth/login.php");
     } else {
-        header("Location: auth/login.php");
+        header("Location: ../auth/login.php");
     }
     exit();
 }

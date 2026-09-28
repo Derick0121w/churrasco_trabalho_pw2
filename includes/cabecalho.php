@@ -1,4 +1,9 @@
-<?php require_once '../includes/verificar_login.php';?>
+<?php
+if(substr(strrchr($_SERVER['SCRIPT_NAME'], '/'), 1) !== "login.php"){
+    include '../includes/cabecalho.php';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
