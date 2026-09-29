@@ -1,10 +1,14 @@
 <?php
 $host = "localhost";
-$user = "root";
-$password = "";
+$usuario = "root";
+$senha = "";
 $banco = "churrasco";
-$conn = new mysqli($host, $user, $password, $banco);
 
-if ($conn -> connect_error) {
-    die("Falha: " .  $conn->connect_error);
+$conn = new mysqli($host, $usuario, $senha, $banco);
+
+if ($conn->connect_error) {
+    die("Falha na conexão com o banco de dados: " . $conn->connect_error);
 }
+
+$conn->set_charset("utf8mb4");
+?>

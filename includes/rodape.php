@@ -1,3 +1,5 @@
-<footer><p>IFRS Campus Bento Gonçalves</p></footer>
+<footer>
+    <p>IFRS Campus Bento Gonçalves</p>
+</footer>
 </body>
 </html>

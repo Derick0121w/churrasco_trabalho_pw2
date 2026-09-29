@@ -4,6 +4,14 @@ include '../includes/cabecalho.php';
 ?>
 
 <h2>Cadastrar Participante</h2>
+
+<?php if (isset($_GET['sucesso'])): ?>
+    <p style="color: green;">Inscrição realizada com sucesso!</p>
+<?php endif; ?>
+<?php if (isset($_GET['erro'])): ?>
+    <p style="color: red;">Erro ao realizar inscrição. Preencha os campos obrigatórios.</p>
+<?php endif; ?>
+
 <form id="formCadastro" action="salvar.php" method="POST" onsubmit="return validarCadastro()">
     <div>
         <label>Nome:</label><br>

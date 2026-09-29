@@ -2,27 +2,21 @@
 require_once '../includes/verificar_login.php';
 require_once '../config/conexao.php';
 
-$id = $_POST['id'];
-$nome = $_POST['nome'];
-$turma = $_POST['turma'];
-$telefone = $_POST['telefone'];
-$tipo_churrasco = $_POST['tipo_churrasco'];
-$acompanhamento = $_POST['acompanhamento'];
-$confirmado = $_POST['confirmado'];
-$pago = $_POST['pago'];
+$id = (int)($_POST['id'] ?? 0);
+$nome = trim($_POST['nome'] ?? '');
+$turma = trim($_POST['turma'] ?? '');
+$telefone = trim($_POST['telefone'] ?? '');
+$tipo_churrasco = trim($_POST['tipo_churrasco'] ?? '');
+$acompanhamento = trim($_POST['acompanhamento'] ?? '');
+$confirmado = (int)($_POST['confirmado'] ?? 0);
+$pago = (int)($_POST['pago'] ?? 0);
 
-$sql = "UPDATE participantes SET 
-        nome = '$nome', 
-        turma = '$turma', 
-        telefone = '$telefone', 
-        tipo_churrasco = '$tipo_churrasco', 
-        acompanhamento = '$acompanhamento', 
-        confirmado = '$confirmado', 
-        pago = '$pago' 
-        WHERE id = $id
-       ";
+if ($id > 0 && !empty($nome) && !empty($turma)) {
+    $stmt = $conn->prepare("UPDATE participantes SET nome = ?, turma = ?, telefone = ?, tipo_churrasco = ?, acompanhamento = ?, confirmado = ?, pago = ? WHERE id = ?");
+    $stmt->bind_param("sssssiii", $nome, $turma, $telefone, $tipo_churrasco, $acompanhamento, $confirmado, $pago, $id);
+    $stmt->execute();
+}
 
-mysqli_query($conn, $sql);
 header('Location: listar.php');
 exit;
 ?>
