@@ -14,7 +14,13 @@ if ($usuario = $resultado->fetch_assoc()) {
     if (password_verify($senha, $usuario['senha'])) {
         $_SESSION['usuario_id'] = $usuario['id'];
         $_SESSION['usuario_nome'] = $usuario['nome'];
-        header("Location: ../index.php");
+
+        // Descobre a pasta raiz dinamicamente
+        $caminho_atual = $_SERVER['SCRIPT_NAME'];
+        $partes = explode('/', trim($caminho_atual, '/'));
+        $pasta_raiz = '/' . $partes[0];
+
+        header("Location: " . $pasta_raiz . "/index.php");
         exit();
     }
 }
