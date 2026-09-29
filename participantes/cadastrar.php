@@ -1,6 +1,6 @@
 <?php 
 require_once '../includes/verificar_login.php'; 
-
+include '../includes/cabecalho.php';
 ?>
 
 <h2>Cadastrar Participante</h2>
@@ -48,3 +48,7 @@ require_once '../includes/verificar_login.php';
 </form>
 <br>
 <a href="../index.php">Voltar</a>
+
+<?php 
+include '../includes/rodape.php'; 
+?>
