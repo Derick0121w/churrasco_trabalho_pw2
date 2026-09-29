@@ -24,3 +24,12 @@ INSERT INTO participantes (nome, turma, telefone, tipo_churrasco, acompanhamento
 ('João Silva', 'INFO 2', NULL, 'Tradicional', 'Arroz', TRUE, TRUE),
 ('Maria Souza', 'INFO 1', NULL, 'Vegetariano', 'Salada', TRUE, FALSE),
 ('Pedro Lima', 'INFO 3', NULL, 'Tradicional', 'Pão', FALSE, FALSE);
+
+
+
+
+
+-- User para testar
+
+INSERT INTO usuarios (nome, email, senha) VALUES
+('Derick', 'admin@email.com', '$2y$10$e0MYzXyjpJS7Pd0RVvHwHe1152aX.jG.2WvA2tFw6m2eB95xOa3u2');
